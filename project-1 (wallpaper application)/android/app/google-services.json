@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "860990236091",
+    "project_id": "darkview-1af03",
+    "storage_bucket": "darkview-1af03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860990236091:android:38a836c67a2574a3ab109e",
+        "android_client_info": {
+          "package_name": "com.example.dark_view"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860990236091-jl5pjioaujq49nlnfr5kk7221vderugk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvTy3rJjWo2uG02Gmt3efdIzNGdLfgcuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860990236091-jl5pjioaujq49nlnfr5kk7221vderugk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
