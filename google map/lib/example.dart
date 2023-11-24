@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
@@ -34,58 +33,55 @@ class _ExampleState extends State<Example> {
       }
     }
     _locationData = await location.getLocation();
-    setState(() {
-      
-    });
+    setState(() {});
     print(_locationData);
   }
-  
+
   final Set<Marker> markers = {};
-  addMarkers(){
+  addMarkers() {
     setState(() {
-      markers.add(
-        Marker(
+      markers.add(Marker(
           markerId: MarkerId('current-location'),
-          position: LatLng(_locationData!.latitude!.toDouble(), _locationData!.longitude!.toDouble()),
+          position: LatLng(_locationData!.latitude!.toDouble(),
+              _locationData!.longitude!.toDouble()),
           icon: BitmapDescriptor.defaultMarker,
-          infoWindow: InfoWindow(
-            title: 'learning-approach'
-          )
-        )
-      );
+          infoWindow: InfoWindow(title: 'learning-approach')));
     });
   }
 
-
+ 
   @override
   void initState() {
     getLocation();
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('learning-approach'),
-        automaticallyImplyLeading: false,
-      ),
-      body: _locationData != null ? GoogleMap(
-        myLocationButtonEnabled: false,
-        mapType: MapType.normal,
-        initialCameraPosition: CameraPosition(
-          target: LatLng(_locationData!.latitude!.toDouble(), _locationData!.longitude!.toDouble()),
-          zoom: 14,
+        appBar: AppBar(
+          title: Text('learning-approach'),
+          automaticallyImplyLeading: false,
         ),
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-          addMarkers();
-        },
-        markers: markers,
-      ): Center(
-        child: CircularProgressIndicator(),
-      )
-    
-    );
+        body: _locationData != null
+            ? GoogleMap(
+                myLocationEnabled: true,
+                myLocationButtonEnabled: true,
+                compassEnabled: true,
+                mapType: MapType.normal,
+                initialCameraPosition: CameraPosition(
+                  target: LatLng(_locationData!.latitude!.toDouble(),
+                      _locationData!.longitude!.toDouble()),
+                  zoom: 14,
+                ),
+                onMapCreated: (GoogleMapController controller) {
+                  _controller.complete(controller);
+                  addMarkers();
+                },
+                markers: markers,
+              )
+            : Center(
+                child: CircularProgressIndicator(),
+              ));
   }
 }
